@@ -21,7 +21,6 @@
     <nav aria-label="Sections">
       <ol>
         <li><a href="#summary">Summary</a></li>
-        <li><a href="#data">Data</a></li>
         <li><a href="#builds">Builds</a></li>
         <li><a href="#strategy">Strategy</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
@@ -45,7 +44,7 @@
       <div class="summary">
         <h2>Executive summary</h2>
         <ul>
-          <li><strong>Turns raw data into decisions.</strong><span class="rest"> Seven tools at Sifton, working on everything from 337 candidate profiles to 117,902 warranty records.</span></li>
+          <li><strong>Turns raw data into decisions.</strong><span class="rest"> A market-intelligence pipeline, a builder risk register, and a technology roadmap at Sifton, with smaller tools around them.</span></li>
           <li><strong>Frames them for decision-makers.</strong><span class="rest"> Technology roadmaps, vendor evaluations, and market analyses written for senior leadership.</span></li>
           <li><strong>Computer Science meets business analytics.</strong><span class="rest"> BSc Computer Science, Western; MSc Business Analytics at Ivey with an 84.8% average.</span></li>
         </ul>
@@ -82,58 +81,10 @@
   </div>
 </section>
 
-<!-- Exhibit 2: data -->
-<section class="exhibit" id="data" aria-labelledby="exd-t">
-  <div class="wrap"><div class="frame">
-    <h2 class="action" id="exd-t">Every build runs on real data, from 337 candidate profiles to 117,902 warranty enrolment records</h2>
-    <p class="lede">Record counts from the tools’ own databases and files. Each dataset was collected, cleaned, and joined before it fed a decision.</p>
-
-    <figure class="datachart evidence" aria-labelledby="dc-cap">
-      <div class="dc-scale" role="radiogroup" aria-label="Chart scale" hidden><span>Scale</span><label><input type="radio" name="dc-scale" value="log" checked><span>Log</span></label><label><input type="radio" name="dc-scale" value="lin"><span>Linear</span></label></div>
-      <div class="dc-axis" aria-hidden="true"><span></span><div><i style="left:0" data-log="100" data-lin="0">100</i><i style="left:25%" data-log="1,000" data-lin="40,000">1,000</i><i style="left:50%" data-log="10,000" data-lin="80,000">10,000</i><i style="left:75%" data-log="100,000" data-lin="120,000">100,000</i><i style="left:100%" data-log="1,000,000" data-lin="160,000">1,000,000</i></div></div>
-        <div class="dc-row" tabindex="0">
-          <span class="dc-l">Warranty enrolment records<small>Builder risk register</small></span>
-          <div class="dc-track" data-v="117902" style="--w:76.8%"><i class="dc-bar"></i><b class="dc-v" data-count>117,902</b>
-            <span class="dc-tip" role="tooltip"><strong>117,902 records</strong>Source: HCRA Ontario Builder Directory<br>Used for: Rate-normalized builder risk scores</span></div>
-        </div>
-        <div class="dc-row" tabindex="0">
-          <span class="dc-l">Change events logged across 15 crawl runs<small>Builder risk register</small></span>
-          <div class="dc-track" data-v="11880" style="--w:51.9%"><i class="dc-bar"></i><b class="dc-v" data-count>11,880</b>
-            <span class="dc-tip" role="tooltip"><strong>11,880 records</strong>Source: Diffs between successive crawls<br>Used for: Flags licence, status, and insolvency changes</span></div>
-        </div>
-        <div class="dc-row" tabindex="0">
-          <span class="dc-l">Claims history records<small>Builder risk register</small></span>
-          <div class="dc-track" data-v="3674" style="--w:39.1%"><i class="dc-bar"></i><b class="dc-v" data-count>3,674</b>
-            <span class="dc-tip" role="tooltip"><strong>3,674 records</strong>Source: HCRA Ontario Builder Directory<br>Used for: Claims per home, not raw counts</span></div>
-        </div>
-        <div class="dc-row" tabindex="0">
-          <span class="dc-l">Building permit records<small>Permit reporting tool</small></span>
-          <div class="dc-track" data-v="770" style="--w:22.2%"><i class="dc-bar"></i><b class="dc-v" data-count>770</b>
-            <span class="dc-tip" role="tooltip"><strong>770 records</strong>Source: London and St. Thomas permit data<br>Used for: Product mix, builder share, concentration</span></div>
-        </div>
-        <div class="dc-row" tabindex="0">
-          <span class="dc-l">Municipal candidates profiled<small>Election candidate profiler</small></span>
-          <div class="dc-track" data-v="337" style="--w:13.2%"><i class="dc-bar"></i><b class="dc-v" data-count>337</b>
-            <span class="dc-tip" role="tooltip"><strong>337 records</strong>Source: Public candidate information<br>Used for: Land-use and development positions</span></div>
-        </div>
-      <figcaption id="dc-cap" class="dc-note">Records per dataset, log scale: each gridline is ten times the one before. Hover, tap, or tab to a bar for its source.</figcaption>
-    </figure>
-
-    <dl class="also dc-also">
-      <dt>Also flowing daily</dt>
-      <dd>21 regulatory, industry, and competitor sources into the market-intelligence pipeline</dd>
-      <dt>Joined in one report</dt>
-      <dd>CMHC housing data, StatCan census, resale boards, and IRCC immigration data in the demographics dashboard</dd>
-    </dl>
-
-    <p class="source"><span class="no">Exhibit 2</span><span>Source: builder register database, permit workbook, and candidate file; counts as of September 28, 2026.</span></p>
-  </div></div>
-</section>
-
-<!-- Exhibit 3: builds -->
+<!-- Exhibit 2: builds -->
 <section class="exhibit" id="builds" aria-labelledby="ex2-t">
   <div class="wrap"><div class="frame">
-    <h2 class="action" id="ex2-t">Seven tools at Sifton, each turning a raw data source into a decision the team makes regularly</h2>
+    <h2 class="action" id="ex2-t">Two flagship builds turn raw public and industry data into decisions the team makes regularly</h2>
     <p class="lede">Read each row left to right: the data that goes in, what is done to it, and the decision it supports.</p>
 
     <div class="evidence table-scroll">
@@ -145,14 +96,8 @@
           <tr class="lead">
             <th scope="row">Market-intelligence pipeline<small>Python, LLM APIs, SQLite</small></th>
             <td data-h="Data in">21 regulatory, industry, and competitor sources, daily</td>
-            <td data-h="Method">Normalize, de-duplicate, keyword filter, then LLM relevance scoring</td>
+            <td data-h="Method">Normalize, de-duplicate, keyword filter, then LLM relevance scoring; a RAG assistant answers follow-ups with citations</td>
             <td data-h="Decision it supports" class="res">What leadership reads each morning: hours of monitoring down to under 10 minutes<br><a class="more" href="work/market-intelligence.html">Case study</a></td>
-          </tr>
-          <tr>
-            <th scope="row">RAG research assistant<small>Retrieval-augmented generation</small></th>
-            <td data-h="Data in">The pipeline’s archive of collected articles</td>
-            <td data-h="Method">Retrieval plus LLM answers, with citations back to the source</td>
-            <td data-h="Decision it supports" class="res">Ad-hoc market and competitor questions, answered in plain language<br><a class="more" href="work/market-intelligence.html#resolution">Case study</a></td>
           </tr>
           <tr>
             <th scope="row">Builder risk register<small>Python, SQLite, HTML dashboard</small></th>
@@ -160,35 +105,16 @@
             <td data-h="Method">Weighted scoring with claims as rates; diffs between crawl runs</td>
             <td data-h="Decision it supports" class="res">Which builders to engage, and what changed since the last review<br><a class="more" href="work/builder-risk-register.html">Case study</a></td>
           </tr>
-          <tr>
-            <th scope="row">Lot × product matcher<small>HTML/JS, rules engine</small></th>
-            <td data-h="Data in">Lot geometry from site plans; plan footprints from the product catalogue</td>
-            <td data-h="Method">Buildable envelope net of zoning setbacks, matched to plan dimensions</td>
-            <td data-h="Decision it supports" class="res">Which home plans to offer a builder for each lot<br><a class="more" href="work/lot-product-matcher.html">Case study</a></td>
-          </tr>
-          <tr>
-            <th scope="row">Building-permit reporting tool<small>Python desktop app</small></th>
-            <td data-h="Data in">770 permit records, London and St. Thomas</td>
-            <td data-h="Method">Product mix, volume over time, builder segmentation, market concentration</td>
-            <td data-h="Decision it supports" class="res">Where competitors are building, and what</td>
-          </tr>
-          <tr>
-            <th scope="row">Market demographics dashboard<small>Python pipeline, HTML report</small></th>
-            <td data-h="Data in">CMHC, StatCan census, resale boards, IRCC</td>
-            <td data-h="Method">Region-level joins, heatmaps, choropleth maps</td>
-            <td data-h="Decision it supports" class="res">Which markets to study for acquisition</td>
-          </tr>
-          <tr>
-            <th scope="row">Election candidate profiler<small>Flask, LLM APIs</small></th>
-            <td data-h="Data in">337 municipal candidates’ public information</td>
-            <td data-h="Method">LLM extraction into a structured, comparable profile</td>
-            <td data-h="Decision it supports" class="res">Where council candidates stand on land use and development</td>
-          </tr>
         </tbody>
       </table>
     </div>
 
-    <p class="source"><span class="no">Exhibit 3</span><span>Source: Sifton Properties, Neighbourhood Developments, April 2026 to present.</span></p>
+    <dl class="also">
+      <dt>Also built</dt>
+      <dd><a href="work/lot-product-matcher.html">Lot × product matcher</a>: which home plans fit each lot, net of zoning setbacks · Building-permit reporting tool: where competitors build, from 770 London and St. Thomas permits · Market demographics dashboard: CMHC, census, resale, and IRCC data joined to shortlist acquisition markets</dd>
+    </dl>
+
+    <p class="source"><span class="no">Exhibit 2</span><span>Source: Sifton Properties, Neighbourhood Developments, April 2026 to present.</span></p>
   </div></div>
 </section>
 
@@ -230,7 +156,7 @@
       </tbody>
     </table>
 
-    <p class="source"><span class="no">Exhibit 4</span><span>Source: Sifton Properties technology roadmap, needs analysis, and vendor evaluation, 2026.</span></p>
+    <p class="source"><span class="no">Exhibit 3</span><span>Source: Sifton Properties technology roadmap, needs analysis, and vendor evaluation, 2026.</span></p>
   </div></div>
 </section>
 
@@ -238,8 +164,17 @@
 <section class="exhibit" id="capabilities" aria-labelledby="ex4-t">
   <div class="wrap"><div class="frame">
     <h2 class="action" id="ex4-t">Every capability here was applied to real data, from collection through to the decision</h2>
-    <p class="lede"><span class="d">Grouped by stage of the data lifecycle. Read across to see where each capability was applied; read down to see what each project took.</span><span class="m">Grouped by stage of the data lifecycle, with the number of projects that used each capability.</span></p>
+    <p class="lede">Grouped by stage of the data lifecycle.</p>
 
+    <dl class="also evidence stages-top">
+      <dt>Collect</dt><dd>Web scraping and public APIs · data ingestion and cleaning</dd>
+      <dt>Store &amp; model</dt><dd>Python · SQL and relational databases</dd>
+      <dt>Analyze</dt><dd>Scoring and risk models · market and competitive analysis · LLM APIs and RAG</dd>
+      <dt>Communicate</dt><dd>Dashboards · technology roadmapping · stakeholder communication</dd>
+    </dl>
+
+    <details class="mx-more">
+    <summary>Show where each capability was applied, project by project</summary>
     <div class="evidence matrix-wrap" tabindex="0" role="region" aria-label="Capability matrix, scrolls sideways on small screens">
       <table class="matrix">
         <thead>
@@ -247,7 +182,6 @@
             <th class="corner" scope="col">Capability</th>
             <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>Market-intel pipeline</span></button></th>
             <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>RAG assistant</span></button></th>
-            <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>Candidate profiler</span></button></th>
             <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>Permit reporting</span></button></th>
             <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>Builder risk register</span></button></th>
             <th scope="col"><button class="mx-col" type="button" aria-pressed="false"><span>Demographics dashboard</span></button></th>
@@ -259,46 +193,47 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="grp"><th scope="rowgroup" colspan="12">Collect</th></tr>
-          <tr><th scope="row">Web scraping &amp; public APIs</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot on" role="img" aria-label="Candidate profiler: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
-          <tr><th scope="row">Data ingestion &amp; cleaning</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
-          <tr class="grp"><th scope="rowgroup" colspan="12">Store &amp; model</th></tr>
-          <tr><th scope="row">SQL &amp; relational databases</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">4</td></tr>
-          <tr><th scope="row">Python</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot on" role="img" aria-label="Candidate profiler: used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">7</td></tr>
-          <tr class="grp"><th scope="rowgroup" colspan="12">Analyze</th></tr>
-          <tr><th scope="row">Scoring &amp; risk models</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">3</td></tr>
-          <tr><th scope="row">Market &amp; competitive analysis</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">4</td></tr>
-          <tr><th scope="row">LLM APIs<small> (Anthropic, OpenAI)</small></th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot on" role="img" aria-label="Candidate profiler: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
-          <tr><th scope="row">Retrieval-augmented generation</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
-          <tr><th scope="row">NLP modelling<small> (Hugging Face)</small></th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
-          <tr class="grp"><th scope="rowgroup" colspan="12">Communicate</th></tr>
-          <tr><th scope="row">Dashboards &amp; interactive reports</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
-          <tr><th scope="row">Web apps<small> (Flask, HTML/JS)</small></th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot on" role="img" aria-label="Candidate profiler: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">2</td></tr>
-          <tr><th scope="row">Technology strategy &amp; roadmapping</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot on" role="img" aria-label="Technology roadmap: used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
-          <tr><th scope="row">Stakeholder communication</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Candidate profiler: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot on" role="img" aria-label="Technology roadmap: used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
+          <tr class="grp"><th scope="rowgroup" colspan="11">Collect</th></tr>
+          <tr><th scope="row">Web scraping &amp; public APIs</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">3</td></tr>
+          <tr><th scope="row">Data ingestion &amp; cleaning</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
+          <tr class="grp"><th scope="rowgroup" colspan="11">Store &amp; model</th></tr>
+          <tr><th scope="row">SQL &amp; relational databases</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">4</td></tr>
+          <tr><th scope="row">Python</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">6</td></tr>
+          <tr class="grp"><th scope="rowgroup" colspan="11">Analyze</th></tr>
+          <tr><th scope="row">Scoring &amp; risk models</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">3</td></tr>
+          <tr><th scope="row">Market &amp; competitive analysis</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot on" role="img" aria-label="Pricing analytics (Mana): used"></i></td><td class="n">4</td></tr>
+          <tr><th scope="row">LLM APIs<small> (Anthropic, OpenAI)</small></th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">3</td></tr>
+          <tr><th scope="row">Retrieval-augmented generation</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot on" role="img" aria-label="RAG assistant: used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
+          <tr><th scope="row">NLP modelling<small> (Hugging Face)</small></th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
+          <tr class="grp"><th scope="rowgroup" colspan="11">Communicate</th></tr>
+          <tr><th scope="row">Dashboards &amp; interactive reports</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot on" role="img" aria-label="Permit reporting: used"></i></td><td><i class="dot on" role="img" aria-label="Builder risk register: used"></i></td><td><i class="dot on" role="img" aria-label="Demographics dashboard: used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
+          <tr><th scope="row">Web apps<small> (Flask, HTML/JS)</small></th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot" role="img" aria-label="Technology roadmap: not used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
+          <tr><th scope="row">Technology strategy &amp; roadmapping</th><td><i class="dot" role="img" aria-label="Market-intel pipeline: not used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot" role="img" aria-label="Lot × product matcher: not used"></i></td><td><i class="dot on" role="img" aria-label="Technology roadmap: used"></i></td><td><i class="dot" role="img" aria-label="NLP research (uOttawa): not used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">1</td></tr>
+          <tr><th scope="row">Stakeholder communication</th><td><i class="dot on" role="img" aria-label="Market-intel pipeline: used"></i></td><td><i class="dot" role="img" aria-label="RAG assistant: not used"></i></td><td><i class="dot" role="img" aria-label="Permit reporting: not used"></i></td><td><i class="dot" role="img" aria-label="Builder risk register: not used"></i></td><td><i class="dot" role="img" aria-label="Demographics dashboard: not used"></i></td><td><i class="dot on" role="img" aria-label="Lot × product matcher: used"></i></td><td><i class="dot on" role="img" aria-label="Technology roadmap: used"></i></td><td><i class="dot on" role="img" aria-label="NLP research (uOttawa): used"></i></td><td><i class="dot" role="img" aria-label="Pricing analytics (Mana): not used"></i></td><td class="n">4</td></tr>
         </tbody>
       </table>
     </div>
     <ul class="mx-list" aria-label="Capabilities and the projects that used them">
       <li class="grp">Collect</li>
-      <li><b>4</b><div><strong>Web scraping &amp; public APIs</strong><span>Market-intel pipeline, Candidate profiler, Builder risk register, Demographics dashboard</span></div></li>
+      <li><b>3</b><div><strong>Web scraping &amp; public APIs</strong><span>Market-intel pipeline, Builder risk register, Demographics dashboard</span></div></li>
       <li><b>4</b><div><strong>Data ingestion &amp; cleaning</strong><span>Market-intel pipeline, Permit reporting, Builder risk register, Demographics dashboard</span></div></li>
       <li class="grp">Store &amp; model</li>
       <li><b>4</b><div><strong>SQL &amp; relational databases</strong><span>Market-intel pipeline, RAG assistant, Builder risk register, Pricing analytics (Mana)</span></div></li>
-      <li><b>7</b><div><strong>Python</strong><span>Market-intel pipeline, RAG assistant, Candidate profiler, Permit reporting, Builder risk register, Demographics dashboard, NLP research (uOttawa)</span></div></li>
+      <li><b>6</b><div><strong>Python</strong><span>Market-intel pipeline, RAG assistant, Permit reporting, Builder risk register, Demographics dashboard, NLP research (uOttawa)</span></div></li>
       <li class="grp">Analyze</li>
       <li><b>3</b><div><strong>Scoring &amp; risk models</strong><span>Market-intel pipeline, Builder risk register, Pricing analytics (Mana)</span></div></li>
       <li><b>4</b><div><strong>Market &amp; competitive analysis</strong><span>Market-intel pipeline, Permit reporting, Demographics dashboard, Pricing analytics (Mana)</span></div></li>
-      <li><b>4</b><div><strong>LLM APIs</strong><span>Market-intel pipeline, RAG assistant, Candidate profiler, NLP research (uOttawa)</span></div></li>
+      <li><b>3</b><div><strong>LLM APIs</strong><span>Market-intel pipeline, RAG assistant, NLP research (uOttawa)</span></div></li>
       <li><b>1</b><div><strong>Retrieval-augmented generation</strong><span>RAG assistant</span></div></li>
       <li><b>1</b><div><strong>NLP modelling</strong><span>NLP research (uOttawa)</span></div></li>
       <li class="grp">Communicate</li>
       <li><b>4</b><div><strong>Dashboards &amp; interactive reports</strong><span>Permit reporting, Builder risk register, Demographics dashboard, Lot × product matcher</span></div></li>
-      <li><b>2</b><div><strong>Web apps</strong><span>Candidate profiler, Lot × product matcher</span></div></li>
+      <li><b>1</b><div><strong>Web apps</strong><span>Lot × product matcher</span></div></li>
       <li><b>1</b><div><strong>Technology strategy &amp; roadmapping</strong><span>Technology roadmap</span></div></li>
       <li><b>4</b><div><strong>Stakeholder communication</strong><span>Market-intel pipeline, Lot × product matcher, Technology roadmap, NLP research (uOttawa)</span></div></li>
     </ul>
     <div class="key"><span><i class="dot on" aria-hidden="true"></i>Used in the project</span><span><i class="dot" aria-hidden="true"></i>Not used</span><span class="key-hint">Hover or select a project to see what it used</span></div>
+    </details>
 
     <dl class="also">
       <dt>Also in the toolkit</dt>
@@ -307,7 +242,7 @@
       <dd>Azure Databricks (Ivey Big Data Analytics) · Pricing &amp; Revenue Analytics · Digital Transformation · Decision Making with Analytics</dd>
     </dl>
 
-    <p class="source"><span class="no">Exhibit 5</span><span>Source: project records, 2024 to 2026.</span></p>
+    <p class="source"><span class="no">Exhibit 4</span><span>Source: project records, 2024 to 2026.</span></p>
   </div></div>
 </section>
 
@@ -343,7 +278,7 @@
       </ul>
     </div>
 
-    <p class="source"><span class="no">Exhibit 6</span><span>Entries dated by year only span the full year. NLP research code is forthcoming in a peer-reviewed psychology journal.</span></p>
+    <p class="source"><span class="no">Exhibit 5</span><span>Entries dated by year only span the full year. NLP research code is forthcoming in a peer-reviewed psychology journal.</span></p>
   </div></div>
 </section>
 
@@ -356,7 +291,7 @@
       <a class="btn btn-ghost arrow dl" href="Matthew-Baker-Resume.pdf" download>Download the one-page resume</a>
       <a class="more" href="https://www.linkedin.com/in/matthew-baker-analytics">Connect on LinkedIn</a>
     </div>
-    <p class="source"><span class="no">Exhibit 7</span><span>Based in London, Ontario.</span></p>
+    <p class="source"><span class="no">Exhibit 6</span><span>Based in London, Ontario.</span></p>
   </div></div>
 </section>
 

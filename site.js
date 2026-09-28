@@ -20,7 +20,7 @@ if (sections.length) {
 }
 
 // Evidence builds in once, only for figures that start below the fold.
-const builders = [...document.querySelectorAll(".flow, .gantt, .bars, .datachart")].filter((el) => !el.closest(".panel"));
+const builders = [...document.querySelectorAll(".flow, .gantt, .bars")].filter((el) => !el.closest(".panel"));
 const bo = new IntersectionObserver(
   (entries) =>
     entries.forEach((e) => {
@@ -148,32 +148,6 @@ if (panel) {
     replay.addEventListener("click", run);
     run();
   }
-}
-
-// Data chart: switch between log and linear scale.
-const chart = document.querySelector(".datachart");
-if (chart) {
-  const scale = chart.querySelector(".dc-scale");
-  const tracks = [...chart.querySelectorAll(".dc-track[data-v]")];
-  const ticks = [...chart.querySelectorAll(".dc-axis i")];
-  const axis = chart.querySelector(".dc-axis");
-  const note = chart.querySelector(".dc-note");
-  const notes = {
-    log: "Records per dataset, log scale: each gridline is ten times the one before. Hover, tap, or tab to a bar for its source.",
-    lin: "Records per dataset, linear scale: the smaller datasets all but vanish next to the warranty records, which is why the default view is log.",
-  };
-  const width = (v, mode) => mode === "log" ? (Math.log10(v) - 2) / 4 * 100 : v / 160000 * 100;
-  const apply = (mode) => {
-    tracks.forEach((t) => t.style.setProperty("--w", width(+t.dataset.v, mode).toFixed(2) + "%"));
-    axis.classList.add("swap"); note.classList.add("swap");
-    setTimeout(() => {
-      ticks.forEach((i) => { i.textContent = i.dataset[mode]; });
-      note.textContent = notes[mode];
-      axis.classList.remove("swap"); note.classList.remove("swap");
-    }, calm ? 0 : 160);
-  };
-  scale.hidden = false;
-  scale.addEventListener("change", (e) => apply(e.target.value));
 }
 
 // Capability matrix: focus one project's column.
