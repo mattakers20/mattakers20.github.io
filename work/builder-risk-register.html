@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Builder Risk Register · Matthew Baker</title>
+<meta name="description" content="Case study: a builder risk register that turns a provincial regulator's licensing data into fair, rate-normalized risk scores with automated change detection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F3864'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23F2A900'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="tracker">
+  <span class="progress" aria-hidden="true"></span>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">Matthew Baker</a>
+    <nav aria-label="Case study sections">
+      <ol>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#complication">Complication</a></li>
+        <li><a href="#resolution">Resolution</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol>
+    </nav>
+    <a class="btn btn-primary btn-sm arrow dl" href="../Matthew-Baker-Resume.pdf" download>Resume (PDF)</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="case-head">
+  <div class="wrap">
+    <a class="back more" href="../index.html#builds">All work</a>
+    <h1>Scoring builder risk from a regulator’s public records, fairly and continuously</h1>
+    <p class="lede">A Python tool that pulls licensing, conviction, insolvency, and claims records into a local database, scores each builder with a weighted model, and flags what changed since the last run.</p>
+    <dl class="meta">
+      <div><dt>Organization</dt><dd>Sifton Properties, Neighbourhood Developments</dd></div>
+      <div><dt>Role</dt><dd>Sole designer and builder</dd></div>
+      <div><dt>Timeline</dt><dd>2026</dd></div>
+      <div><dt>Stack</dt><dd>Python, local database, HTML dashboard</dd></div>
+      <div class="dm"><dt>Data in</dt><dd>HCRA Ontario Builder Directory (public)</dd></div>
+      <div class="dm"><dt>Volume</dt><dd>117,902 enrolments, 3,674 claims records, 11,880 changes logged over 15 crawl runs</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="exhibit" id="situation" aria-labelledby="s-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="s-t">A developer’s lots are only as safe as the builders who put homes on them</h2>
+    <div class="evidence prose">
+      <p>Before engaging a builder, the team needs to know whether that builder is licensed, whether it has faced convictions, insolvency filings, or regulatory notices, and how its warranty and claims history compares. Ontario’s home-building regulator publishes much of this through its public builder directory.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="complication" aria-labelledby="c-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="c-t">The records were scattered, point-in-time, and unfair to large builders when read as raw counts</h2>
+    <div class="evidence two">
+      <div class="prose">
+        <ul>
+          <li><strong>Scattered.</strong> Licence status, convictions, insolvency filings, notices of proposal, and claims history each sit in a different part of the record.</li>
+          <li><strong>Point-in-time.</strong> The directory shows the current state; it does not say what changed since you last looked.</li>
+          <li><strong>Misleading counts.</strong> A builder with hundreds of homes will have more claims than one with a few dozen, even if its homes are more reliable.</li>
+        </ul>
+      </div>
+      <div class="bars" aria-label="Illustrative comparison of raw claim counts and claims per 100 homes">
+        <div>
+          <h3>Raw claim count</h3>
+          <div class="brow"><span>Builder A · 400 homes</span><div class="track"><div class="fill" style="--w:100%"></div></div><b>12</b></div>
+          <div class="brow"><span>Builder B · 40 homes</span><div class="track"><div class="fill" style="--w:33.3%"></div></div><b>4</b></div>
+        </div>
+        <div>
+          <h3>Claims per 100 homes</h3>
+          <div class="brow"><span>Builder A</span><div class="track"><div class="fill" style="--w:30%"></div></div><b>3.0</b></div>
+          <div class="brow hi"><span>Builder B</span><div class="track"><div class="fill" style="--w:100%"></div></div><b>10.0</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="source"><span class="no">Exhibit C1</span><span>Builders A and B are <span class="illus">illustrative</span>. Read as raw counts, A looks three times riskier; normalized as rates, B is.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="resolution" aria-labelledby="r-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="r-t">One register that ingests the records, scores them as rates, and diffs every run against the last</h2>
+    <div class="evidence two">
+      <div class="prose">
+        <p><strong>Ingestion.</strong> The tool pulls the regulator’s public licensing data into a local database: licence status, convictions, insolvency filings, notices of proposal, and warranty and claims history.</p>
+        <p><strong>Weighted scoring.</strong> Each factor carries a weight, and claims are normalized as rates rather than raw counts, so larger builders are not penalized for scale.</p>
+        <p><strong>Change detection.</strong> Each crawl is compared with the one before it. New licences, status changes, insolvency flags, and new convictions or notices are surfaced as changes, so reviewers see what moved rather than re-reading the whole register.</p>
+        <p><strong>Delivery.</strong> Results appear in an HTML “Builder Risk Register” dashboard the team can open without installing anything.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="log" aria-label="Illustrative change log between two runs">
+          <thead><tr><th scope="col">Builder</th><th scope="col">Change since last run</th><th scope="col">Flag</th></tr></thead>
+          <tbody>
+            <tr><td>Builder C</td><td class="chg">Licence status: active → under review</td><td><span class="flag w">Review</span></td></tr>
+            <tr><td>Builder D</td><td class="chg">New notice of proposal issued</td><td><span class="flag w">Review</span></td></tr>
+            <tr><td>Builder E</td><td class="chg">New licence granted</td><td><span class="flag">Info</span></td></tr>
+            <tr><td>Builder F</td><td class="chg">No change</td><td><span class="flag">None</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="source"><span class="no">Exhibit R1</span><span>Change log is <span class="illus">illustrative</span>: builders and events are invented to show the format.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="results" aria-labelledby="x-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="x-t">Counterparty risk is checked before engagement, on a fair scale, with changes flagged automatically</h2>
+    <div class="evidence prose">
+      <ul>
+        <li>Builder risk is assessed from one register instead of several lookups.</li>
+        <li>Rate-based scoring compares large and small builders fairly.</li>
+        <li>Change detection turns a static directory into an early-warning feed.</li>
+      </ul>
+    </div>
+    <p class="source"><span class="no">Exhibit R2</span><span>Source: Sifton Properties, Neighbourhood Developments, 2026.</span></p>
+  </div></div>
+</section>
+
+<div class="wrap next-wrap">
+  <div class="next-case">
+    <div><a class="big more" href="lot-product-matcher.html">Next: Showing builders exactly which homes fit which lots</a></div>
+    <a class="btn btn-primary" href="mailto:mbaker.msc2026@ivey.ca">Email Matthew</a>
+  </div>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="fw">Matthew Baker</span>
+    <a href="mailto:mbaker.msc2026@ivey.ca">mbaker.msc2026@ivey.ca</a>
+    <a href="https://www.linkedin.com/in/matthew-baker-analytics">LinkedIn</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

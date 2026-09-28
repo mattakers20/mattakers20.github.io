@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Intelligence Pipeline · Matthew Baker</title>
+<meta name="description" content="Case study: an automated market-intelligence pipeline and RAG assistant that cut senior leadership's daily monitoring from hours to under 10 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F3864'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23F2A900'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="tracker">
+  <span class="progress" aria-hidden="true"></span>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">Matthew Baker</a>
+    <nav aria-label="Case study sections">
+      <ol>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#complication">Complication</a></li>
+        <li><a href="#resolution">Resolution</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol>
+    </nav>
+    <a class="btn btn-primary btn-sm arrow dl" href="../Matthew-Baker-Resume.pdf" download>Resume (PDF)</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="case-head">
+  <div class="wrap">
+    <a class="back more" href="../index.html#builds">All work</a>
+    <h1>Cut senior leadership’s market monitoring from hours to under 10 minutes a day</h1>
+    <p class="lede">A Python pipeline that reads 21 sources every day, ranks what matters with a two-stage keyword and LLM scoring engine, and lets leadership question the archive in plain language.</p>
+    <dl class="meta">
+      <div><dt>Organization</dt><dd>Sifton Properties, Neighbourhood Developments</dd></div>
+      <div><dt>Role</dt><dd>Sole designer and builder</dd></div>
+      <div><dt>Timeline</dt><dd>2026</dd></div>
+      <div><dt>Stack</dt><dd>Python, SQLite, Anthropic &amp; OpenAI APIs, RAG</dd></div>
+      <div class="dm"><dt>Data in</dt><dd>21 regulatory, industry, and competitor sources</dd></div>
+      <div class="dm"><dt>Volume</dt><dd>Collected daily; archive of every scored article</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="exhibit" id="situation" aria-labelledby="s-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="s-t">Leadership needs an early read on every regulatory, industry, and competitor move in southwestern Ontario</h2>
+    <div class="evidence prose">
+      <p>Land development decisions turn on news that arrives from many directions at once: municipal planning changes, provincial housing policy, industry reports, and what competing developers are announcing. The team owns competitor tracking for the region and maintains the market-intelligence picture senior leadership works from.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="complication" aria-labelledby="c-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="c-t">Twenty-one sources, each with its own format, took hours of reading to monitor by hand</h2>
+    <div class="evidence prose">
+      <ul>
+        <li>Sources published on different schedules, in inconsistent formats, often repeating the same story.</li>
+        <li>Most items were irrelevant to the team, but finding the few that mattered meant reading all of them.</li>
+        <li>Past coverage was effectively lost: answering “what have competitors said about this?” meant searching from scratch.</li>
+      </ul>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="resolution" aria-labelledby="r-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="r-t">An automated pipeline that collects, cleans, and ranks, with a question-answering layer on top</h2>
+
+    <ol class="flow evidence" aria-label="Pipeline stages">
+      <li><span class="chev"><span><b>1</b>Collect</span></span><p>21 regulatory, industry, and competitor sources, pulled daily</p></li>
+      <li><span class="chev"><span><b>2</b>Clean</span></span><p>Normalization and de-duplication canonicalize entries across sources</p></li>
+      <li><span class="chev"><span><b>3</b>Filter</span></span><p>A cheap keyword stage removes clearly irrelevant items</p></li>
+      <li><span class="chev"><span><b>4</b>Score</span></span><p>An LLM stage scores what remains for relevance to the team</p></li>
+      <li><span class="chev"><span><b>5</b>Brief</span></span><p>A ranked digest goes to senior leadership</p></li>
+      <li><span class="chev"><span><b>6</b>Ask</span></span><p>RAG answers ad-hoc questions over the archive, with citations</p></li>
+    </ol>
+
+    <div class="two spaced">
+      <div class="prose">
+        <p><strong>Why two scoring stages.</strong> Running every item through a language model is slow and costly, and keywords alone miss context. The keyword stage clears the obvious noise so the LLM spends its effort only on items that might matter.</p>
+        <p><strong>Why data quality came first.</strong> The same announcement often appears in several sources. Normalization and de-duplication run before scoring, so leadership never sees one story ranked three times, and flagged results are validated before they reach the digest.</p>
+        <p><strong>Why a question layer.</strong> The digest answers “what happened today.” The retrieval-augmented assistant answers “what do we know,” searching months of collected coverage and citing the articles each answer came from.</p>
+      </div>
+      <div>
+        <div class="digest" aria-label="Illustrative sample of a ranked digest">
+          <header>Morning digest<span>Illustrative sample</span></header>
+          <ol>
+            <li><span class="rk">1</span><span>Council committee advances an official plan amendment affecting a growth area<span class="tg">Municipal planning · regulatory</span></span><span class="sc">0.94</span></li>
+            <li><span class="rk">2</span><span>Competing developer files a draft plan of subdivision nearby<span class="tg">Competitor · planning filings</span></span><span class="sc">0.88</span></li>
+            <li><span class="rk">3</span><span>Province updates housing-supply guidance for municipalities<span class="tg">Provincial policy</span></span><span class="sc">0.71</span></li>
+          </ol>
+        </div>
+        <div class="digest" aria-label="Illustrative sample of a question and cited answer">
+          <header>Ask the archive<span>Illustrative sample</span></header>
+          <div class="qa">
+            <p class="q">What have competitors announced in the region this quarter?</p>
+            <p class="a">Two new subdivision filings and one price-point shift in entry-level product<sup>[1]</sup><sup>[2]</sup>, plus a joint venture on a mid-rise site<sup>[3]</sup>.</p>
+            <p class="cites">Answers cite the stored articles they draw on, so every claim can be checked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="source"><span class="no">Exhibit R1</span><span>Digest and Q&amp;A panels are <span class="illus">illustrative</span>: headlines, scores, and answers are invented to show the format, not real Sifton data.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="results" aria-labelledby="x-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="x-t">Monitoring now takes under 10 minutes, and the archive answers questions it could not before</h2>
+    <div class="evidence">
+      <div class="result flush">
+        <div class="pair"><span class="lbl">Daily monitoring</span><span class="was">Hours</span><span class="now">Under 10 min</span></div>
+        <p>Senior leadership reads one ranked digest instead of 21 sources.</p>
+      </div>
+      <div class="prose spaced">
+        <ul>
+          <li>Daily coverage of 21 sources with no manual collection.</li>
+          <li>Ad-hoc research questions answered in natural language, with sources.</li>
+          <li>The same LLM-integration pattern later powered a Flask app that profiles municipal election candidates’ land-use and development positions.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="source"><span class="no">Exhibit R2</span><span>Source: Sifton Properties, Neighbourhood Developments, 2026.</span></p>
+  </div></div>
+</section>
+
+<div class="wrap next-wrap">
+  <div class="next-case">
+    <div><a class="big more" href="builder-risk-register.html">Next: Scoring builder risk from a regulator’s public records</a></div>
+    <a class="btn btn-primary" href="mailto:mbaker.msc2026@ivey.ca">Email Matthew</a>
+  </div>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="fw">Matthew Baker</span>
+    <a href="mailto:mbaker.msc2026@ivey.ca">mbaker.msc2026@ivey.ca</a>
+    <a href="https://www.linkedin.com/in/matthew-baker-analytics">LinkedIn</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

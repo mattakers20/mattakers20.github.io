@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lot × Product Matcher · Matthew Baker</title>
+<meta name="description" content="Case study: a site-plan designer and product catalogue combined into a matcher that shows builders which house plans fit which lots, net of zoning setbacks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F3864'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23F2A900'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="tracker">
+  <span class="progress" aria-hidden="true"></span>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">Matthew Baker</a>
+    <nav aria-label="Case study sections">
+      <ol>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#complication">Complication</a></li>
+        <li><a href="#resolution">Resolution</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol>
+    </nav>
+    <a class="btn btn-primary btn-sm arrow dl" href="../Matthew-Baker-Resume.pdf" download>Resume (PDF)</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="case-head">
+  <div class="wrap">
+    <a class="back more" href="../index.html#builds">All work</a>
+    <h1>Showing builders exactly which homes fit which lots</h1>
+    <p class="lede">Two internal tools, a site-plan designer and a product catalogue, combined into a matcher that computes each lot’s buildable area and shows which house plans fit it.</p>
+    <dl class="meta">
+      <div><dt>Organization</dt><dd>Sifton Properties, Neighbourhood Developments</dd></div>
+      <div><dt>Role</dt><dd>Sole designer and builder</dd></div>
+      <div><dt>Timeline</dt><dd>2026</dd></div>
+      <div><dt>Stack</dt><dd>HTML, JavaScript, rules engine; no server</dd></div>
+      <div class="dm"><dt>Data in</dt><dd>Site-plan lot geometry; product catalogue</dd></div>
+      <div class="dm"><dt>Volume</dt><dd>Lot frontage, depth, setbacks, density class; plan footprints</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="exhibit" id="situation" aria-labelledby="s-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="s-t">Selling lots to builders starts with one question: what can I build here?</h2>
+    <div class="evidence prose">
+      <p>Each new neighbourhood is laid out as a site plan of lots with different frontages, depths, prices, and density classes. Builders choose lots with specific house and building plans in mind, so every conversation depends on matching the two.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="complication" aria-labelledby="c-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="c-t">Lot inventory lived in static PDFs and spreadsheets, so every fit question meant manual back-and-forth</h2>
+    <div class="evidence prose">
+      <ul>
+        <li>Site plans were shared as PDFs that could not show status, price, or dimensions interactively.</li>
+        <li>A lot’s buildable area depends on zoning setbacks, so fit could not be read from the lot size alone.</li>
+        <li>Matching plans to lots was done by hand, one conversation at a time.</li>
+      </ul>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="resolution" aria-labelledby="r-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="r-t">A matcher that nets out setbacks and answers the fit question instantly. Try it.</h2>
+    <p class="lede">Pick a house plan. Lots that can take it fill in; lots that cannot say why.</p>
+
+    <div class="matcher evidence" data-matcher>
+      <fieldset class="plans">
+        <legend>House plan (width × depth)</legend>
+        <label><input type="radio" name="plan" data-w="6.0" data-d="16.0" data-name="Townhouse unit"><span class="pl">Townhouse unit<small>6.0 × 16.0 m</small></span></label>
+        <label><input type="radio" name="plan" data-w="7.5" data-d="17.0" data-name="Semi-detached" ><span class="pl">Semi-detached<small>7.5 × 17.0 m</small></span></label>
+        <label><input type="radio" name="plan" data-w="8.5" data-d="18.0" data-name="Compact single" checked><span class="pl">Compact single<small>8.5 × 18.0 m</small></span></label>
+        <label><input type="radio" name="plan" data-w="11.5" data-d="19.0" data-name="Mid single"><span class="pl">Mid single<small>11.5 × 19.0 m</small></span></label>
+        <label><input type="radio" name="plan" data-w="14.0" data-d="21.0" data-name="Estate single"><span class="pl">Estate single<small>14.0 × 21.0 m</small></span></label>
+      </fieldset>
+
+      <div class="site">
+        <svg viewBox="0 0 960 400" role="img" aria-label="Six illustrative lots along a street; lots that fit the selected plan are filled">
+          <rect class="road" x="0" y="350" width="960" height="50"/>
+          <text class="road-l" x="480" y="381" text-anchor="middle">ILLUSTRATIVE STREET</text>
+          <!-- scale: 8 px per metre; lots sit on y=350 frontage -->
+          <g class="lot" data-id="101" data-w="9.1" data-d="33.5" transform="translate(40,82)">
+            <rect class="parcel" width="72.8" height="268"/>
+            <rect class="env" x="9.6" y="60" width="53.6" height="160"/>
+            <rect class="home" data-k="8" data-b="220" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="36.4" y="-24" text-anchor="middle">101</text>
+            <text class="dim" x="36.4" y="-8" text-anchor="middle">9.1 × 33.5</text>
+            <text class="why" x="36.4" y="238" text-anchor="middle"></text>
+          </g>
+          <g class="lot" data-id="102" data-w="10.4" data-d="33.5" transform="translate(128,82)">
+            <rect class="parcel" width="83.2" height="268"/>
+            <rect class="env" x="9.6" y="60" width="64" height="160"/>
+            <rect class="home" data-k="8" data-b="220" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="41.6" y="-24" text-anchor="middle">102</text>
+            <text class="dim" x="41.6" y="-8" text-anchor="middle">10.4 × 33.5</text>
+            <text class="why" x="41.6" y="238" text-anchor="middle"></text>
+          </g>
+          <g class="lot" data-id="103" data-w="11.6" data-d="33.5" transform="translate(227,82)">
+            <rect class="parcel" width="92.8" height="268"/>
+            <rect class="env" x="9.6" y="60" width="73.6" height="160"/>
+            <rect class="home" data-k="8" data-b="220" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="46.4" y="-24" text-anchor="middle">103</text>
+            <text class="dim" x="46.4" y="-8" text-anchor="middle">11.6 × 33.5</text>
+            <text class="why" x="46.4" y="238" text-anchor="middle"></text>
+          </g>
+          <g class="lot" data-id="104" data-w="12.8" data-d="33.5" transform="translate(336,82)">
+            <rect class="parcel" width="102.4" height="268"/>
+            <rect class="env" x="9.6" y="60" width="83.2" height="160"/>
+            <rect class="home" data-k="8" data-b="220" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="51.2" y="-24" text-anchor="middle">104</text>
+            <text class="dim" x="51.2" y="-8" text-anchor="middle">12.8 × 33.5</text>
+            <text class="why" x="51.2" y="238" text-anchor="middle"></text>
+          </g>
+          <g class="lot" data-id="105" data-w="15.2" data-d="33.5" transform="translate(454,82)">
+            <rect class="parcel" width="121.6" height="268"/>
+            <rect class="env" x="9.6" y="60" width="102.4" height="160"/>
+            <rect class="home" data-k="8" data-b="220" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="60.8" y="-24" text-anchor="middle">105</text>
+            <text class="dim" x="60.8" y="-8" text-anchor="middle">15.2 × 33.5</text>
+            <text class="why" x="60.8" y="238" text-anchor="middle"></text>
+          </g>
+          <g class="lot" data-id="106" data-w="18.3" data-d="36.5" transform="translate(592,58)">
+            <rect class="parcel" width="146.4" height="292"/>
+            <rect class="env" x="9.6" y="60" width="127.2" height="184"/>
+            <rect class="home" data-k="8" data-b="244" x="9.6" y="60" width="0" height="0"/>
+            <text class="num" x="73.2" y="-24" text-anchor="middle">106</text>
+            <text class="dim" x="73.2" y="-8" text-anchor="middle">18.3 × 36.5</text>
+            <text class="why" x="73.2" y="262" text-anchor="middle"></text>
+          </g>
+          <g class="legend" transform="translate(772,120)">
+            <rect width="16" height="16" fill="#1F3864"/><text x="24" y="12.5">Plan fits</text>
+            <rect y="28" width="16" height="16" fill="none" stroke="#44546A" stroke-dasharray="4 3"/><text x="24" y="40.5">Buildable envelope</text>
+            <rect y="56" width="16" height="16" fill="#fff" stroke="#0E1B2C" stroke-width="1.5"/><text x="24" y="68.5">Lot boundary</text>
+            <text y="106" class="dim">Setbacks: sides 1.2 m,</text>
+            <text y="124" class="dim">front 6.0 m, rear 7.5 m</text>
+          </g>
+        </svg>
+      </div>
+      <p class="readout" aria-live="polite"></p>
+    </div>
+
+    <div class="two spaced">
+      <div class="prose">
+        <p><strong>Site-plan designer.</strong> Traces a neighbourhood’s site plan from a PDF or image and lets the team draw lots, roads, and amenities over it, tagging each lot with status, price, dimensions, and density class.</p>
+        <p><strong>Product catalogue.</strong> Sifton’s house and building plans, with the dimensions the matcher needs.</p>
+      </div>
+      <div class="prose">
+        <p><strong>Matcher.</strong> Computes each lot’s buildable frontage and depth net of zoning setbacks, then determines which plans fit by density class and dimensions, as a live match view and a builder-facing export.</p>
+        <p><strong>Zero infrastructure.</strong> Exports are self-contained web pages: no server and no developer involvement to publish a new neighbourhood.</p>
+      </div>
+    </div>
+
+    <p class="source"><span class="no">Exhibit R1</span><span>Lots, plans, and setbacks in the demo are <span class="illus">illustrative</span>. Density classes are left out for clarity.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="results" aria-labelledby="x-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="x-t">Builder conversations start from what is buildable, not from a static PDF</h2>
+    <div class="evidence prose">
+      <ul>
+        <li>Interactive, self-contained pages replace static PDFs and spreadsheets as the way lot inventory is shared.</li>
+        <li>Fit between lots and plans is computed rather than argued, streamlining builder conversations about what goes where.</li>
+        <li>New neighbourhoods publish without a server or a developer.</li>
+      </ul>
+    </div>
+    <p class="source"><span class="no">Exhibit R2</span><span>Source: Sifton Properties, Neighbourhood Developments, 2026.</span></p>
+  </div></div>
+</section>
+
+<div class="wrap next-wrap">
+  <div class="next-case">
+    <div><a class="big more" href="technology-roadmap.html">Next: A three-year path off spreadsheets</a></div>
+    <a class="btn btn-primary" href="mailto:mbaker.msc2026@ivey.ca">Email Matthew</a>
+  </div>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="fw">Matthew Baker</span>
+    <a href="mailto:mbaker.msc2026@ivey.ca">mbaker.msc2026@ivey.ca</a>
+    <a href="https://www.linkedin.com/in/matthew-baker-analytics">LinkedIn</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>

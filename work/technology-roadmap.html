@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology Roadmap · Matthew Baker</title>
+<meta name="description" content="Case study: a needs-and-gaps analysis and three-year technology roadmap moving a real estate development team from spreadsheets to governed, automated reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F3864'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23F2A900'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="tracker">
+  <span class="progress" aria-hidden="true"></span>
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">Matthew Baker</a>
+    <nav aria-label="Case study sections">
+      <ol>
+        <li><a href="#situation">Situation</a></li>
+        <li><a href="#complication">Complication</a></li>
+        <li><a href="#resolution">Resolution</a></li>
+        <li><a href="#results">Results</a></li>
+      </ol>
+    </nav>
+    <a class="btn btn-primary btn-sm arrow dl" href="../Matthew-Baker-Resume.pdf" download>Resume (PDF)</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="case-head">
+  <div class="wrap">
+    <a class="back more" href="../index.html#strategy">All work</a>
+    <h1>A three-year path off spreadsheets, grounded in a gap-by-gap diagnosis</h1>
+    <p class="lede">A formal needs-and-gaps analysis of the team’s development and inventory data, and the 2026 to 2028 technology roadmap it produced.</p>
+    <dl class="meta">
+      <div><dt>Organization</dt><dd>Sifton Properties, Neighbourhood Developments</dd></div>
+      <div><dt>Role</dt><dd>Author of the analysis and roadmap</dd></div>
+      <div><dt>Timeline</dt><dd>2026</dd></div>
+      <div><dt>Methods</dt><dd>Current-state assessment, needs matrix, phased roadmapping</dd></div>
+      <div class="dm"><dt>Data in</dt><dd>Excel workbooks and Monday.com boards</dd></div>
+      <div class="dm"><dt>Volume</dt><dd>9 gaps mapped across 7 value-chain stages</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="exhibit" id="situation" aria-labelledby="s-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="s-t">Development data follows every lot from acquisition to the day the city assumes the roads</h2>
+    <div class="evidence">
+      <ol class="chain" aria-label="Development value chain">
+        <li>Acquisition</li><li>Entitlement</li><li>Servicing</li><li>Conveyance</li><li>Vertical construction</li><li>Sales</li><li>Assumption</li>
+      </ol>
+      <div class="prose spaced">
+        <p>Lot and block inventory, construction status, and permit tracking inform decisions at every stage. The team ran that data across Excel workbooks and Monday.com.</p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="exhibit" id="complication" aria-labelledby="c-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="c-t">Excel was doing four jobs at once, leaving nine distinct gaps</h2>
+    <div class="evidence strat">
+      <div class="jobs">
+        <h3>One tool, four jobs</h3>
+        <ul>
+          <li>Database<span>Where the records live</span></li>
+          <li>Calculation engine<span>Where the numbers are worked</span></li>
+          <li>Dashboard<span>Where leadership looks</span></li>
+          <li>Collaboration tool<span>Where the team edits together</span></li>
+        </ul>
+      </div>
+      <div class="table-scroll">
+        <table class="gaps">
+          <thead><tr><th scope="col">#</th><th scope="col">Need</th><th scope="col">The gap today</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Historical data</td><td>No record of how values changed over time</td></tr>
+            <tr><td>2</td><td>Data quality and governance</td><td>No enforcement of what a valid entry looks like</td></tr>
+            <tr><td>3</td><td>Early-warning flagging</td><td>Problems surface only when someone notices</td></tr>
+            <tr><td>4</td><td>Notification</td><td>No one is told when something changes</td></tr>
+            <tr><td>5</td><td>Spatial representation</td><td>Lots cannot be seen on a map</td></tr>
+            <tr><td>6</td><td>Single source of truth</td><td>Several versions of the same data</td></tr>
+            <tr><td>7</td><td>Reporting</td><td>Reports rebuilt by hand each cycle</td></tr>
+            <tr><td>8</td><td>Continuity</td><td>Knowledge at risk when staff change</td></tr>
+            <tr><td>9</td><td>Access control and audit trail</td><td>No record of who changed what</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="source"><span class="no">Exhibit C1</span><span>Source: development and inventory data needs analysis, 2026. Each gap was also mapped to the value-chain stage it puts at risk.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="resolution" aria-labelledby="r-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="r-t">Sequence the fix so each year builds on data the team already trusts</h2>
+    <div class="evidence phases">
+      <ol>
+        <li class="phase"><span class="chev">Year 1 · 2026</span><h3 class="ph">Trustworthy data</h3><p>Governed data stores, quality enforcement, and history tracking. Closes gaps 1, 2, 6, and 9 first, because everything after depends on them.</p></li>
+        <li class="phase"><span class="chev">Year 2 · 2027</span><h3 class="ph">Connected reporting</h3><p>Platform migration and integration so reports draw from one source and stop being rebuilt by hand.</p></li>
+        <li class="phase"><span class="chev">Year 3 · 2028</span><h3 class="ph">Automated insight</h3><p>Early-warning monitoring, notification, and AI-assisted reporting on top of trusted, connected data.</p></li>
+      </ol>
+    </div>
+    <div class="two spaced">
+      <div class="prose">
+        <p><strong>Why this order.</strong> Automation built on untrusted data automates the errors. The roadmap puts foundational data trust first, then platform migration, then monitoring and AI, aligning the governance work with how much change the team can absorb at once.</p>
+      </div>
+      <div class="prose">
+        <p><strong>Related: sourcing data without overspending.</strong> A separate vendor evaluation compared five commercial demographic data providers on granularity, currency, GIS compatibility, and licensing cost. It recommended covering what free public sources (StatCan, CMHC) already provide before paying for the rest.</p>
+      </div>
+    </div>
+    <p class="source"><span class="no">Exhibit R1</span><span>Source: Neighbourhood Developments technology roadmap, 2026–2028.</span></p>
+  </div></div>
+</section>
+
+<section class="exhibit" id="results" aria-labelledby="x-t">
+  <div class="wrap"><div class="frame">
+    <h2 class="action" id="x-t">The team has a diagnosis it can point to and a sequenced plan to act on</h2>
+    <div class="evidence prose">
+      <ul>
+        <li>Nine concrete gaps replace a general sense that “the spreadsheets are a problem.”</li>
+        <li>Each gap is tied to the stage of the development value chain it affects.</li>
+        <li>A three-phase roadmap converts the gaps into requirements for a governed reporting foundation.</li>
+      </ul>
+    </div>
+    <p class="source"><span class="no">Exhibit R2</span><span>Source: Sifton Properties, Neighbourhood Developments, 2026.</span></p>
+  </div></div>
+</section>
+
+<div class="wrap next-wrap">
+  <div class="next-case">
+    <div><a class="big more" href="market-intelligence.html">Next: Cutting market monitoring from hours to minutes</a></div>
+    <a class="btn btn-primary" href="mailto:mbaker.msc2026@ivey.ca">Email Matthew</a>
+  </div>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="fw">Matthew Baker</span>
+    <a href="mailto:mbaker.msc2026@ivey.ca">mbaker.msc2026@ivey.ca</a>
+    <a href="https://www.linkedin.com/in/matthew-baker-analytics">LinkedIn</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+<script src="../site.js"></script>
+</body>
+</html>
