@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-09-29T15:13:53.233Z",
+        "reason": "Claude: styles.css:667 is the CSS border-triangle arrowhead on the ongoing Gantt bar (.bar.now::after), not a card accent"
+      }
+    ]
+  }
+}

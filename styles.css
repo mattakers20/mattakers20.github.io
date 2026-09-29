@@ -7,6 +7,7 @@
   --navy-deep: #16294a;
   --slate: #e8edf3;
   --slate-2: #f4f6f9;
+  --band: #eef2f7;
   --muted: #44546a;
   --rule: #c9d2de;
   --amber: #f2a900;
@@ -215,17 +216,20 @@ a:hover.dl::after { transform: translateY(2px); }
 /* ---------- Exhibit frame ---------- */
 
 .exhibit {
-  padding: clamp(56px, 8vw, 104px) 0 0;
+  padding: clamp(64px, 9vw, 120px) 0;
 }
-.exhibit > .wrap > .frame {
+/* Alternate full-bleed bands so each exhibit reads as its own slide. */
+.exhibit.band { background: var(--band); }
+.band .matrix tbody th { background: var(--band); }
+.band .matrix tbody tr:hover th { background: var(--slate-2); }.exhibit > .wrap > .frame {
   border-top: 2px solid var(--ink);
   padding-top: 22px;
 }
 .action {
-  font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.375rem);
+  font-size: clamp(1.75rem, 1.8vw + 1.15rem, 2.75rem);
   line-height: 1.15;
   letter-spacing: -0.012em;
-  max-width: 34ch;
+  max-width: 40ch;
 }
 .lede {
   margin-top: 14px;
@@ -262,7 +266,7 @@ a:hover.dl::after { transform: translateY(2px); }
 /* ---------- Cover (first viewport) ---------- */
 
 .cover {
-  padding: clamp(32px, 5vw, 64px) 0 0;
+  padding: clamp(32px, 5vw, 64px) 0 clamp(64px, 9vw, 120px);
 }
 .cover .wrap {
   display: grid;
@@ -741,6 +745,20 @@ table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nu
 }
 .site-foot a { color: #fff; }
 .site-foot .fw { font: 600 1.0625rem/1 var(--serif); color: #fff; margin-right: auto; }
+
+/* Closing exhibit: an ink band that runs into the footer. */
+.exhibit.dark { background: var(--ink); color: #dbe3ee; }
+.dark .frame { border-top-color: #fff; }
+.dark .action { color: #fff; }
+.dark .btn-primary { background: #fff; border-color: #fff; color: var(--ink); }
+.dark .btn-primary:hover { background: var(--slate); border-color: var(--slate); box-shadow: none; }
+.dark .btn-ghost { border-color: #fff; color: #fff; }
+.dark .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+.dark .more { color: #fff; }
+.dark .source { border-top-color: rgba(255, 255, 255, 0.25); color: #dbe3ee; }
+.dark .source .no { color: #fff; }
+.dark :focus-visible { outline-color: #fff; }
+main:has(> .exhibit.dark:last-child) + .site-foot { margin-top: 0; border-top: 1px solid rgba(255, 255, 255, 0.18); }
 
 /* ---------- Case study pages ---------- */
 
