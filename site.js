@@ -7,8 +7,11 @@ if (sections.length) {
   const setActive = (id) => {
     tabs.forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === "#" + id ? "true" : "false"));
     const on = tabs.find((a) => a.getAttribute("aria-current") === "true");
-    if (on && on.closest('nav').scrollWidth > on.closest('nav').clientWidth) {
-      on.scrollIntoView({ block: "nearest", inline: "nearest" });
+    const nav = on && on.closest("nav");
+    // Scroll only the tab strip sideways; scrollIntoView would also move the page mid-swipe.
+    if (nav && nav.scrollWidth > nav.clientWidth) {
+      const a = on.getBoundingClientRect(), n = nav.getBoundingClientRect();
+      nav.scrollBy({ left: a.left + a.width / 2 - (n.left + n.width / 2), behavior: "smooth" });
     }
   };
   const io = new IntersectionObserver(
